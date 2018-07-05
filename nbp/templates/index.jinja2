@@ -1,0 +1,33 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+
+    <span><h1>Akutalne kursy walut</h1></span>
+    <table>
+        <tr>
+            <td>
+                Currency
+            </td>
+            <td>
+                Code
+            </td>
+            <td>
+                Mid
+            </td>
+        </tr>
+        {% for a in table %}
+        <tr>
+            <td>{{ a.currency }}</td>
+            <td>{{ a.code }}</td>
+            <td>{{ a.mid }} zł</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <form  method="POST" action="/update">
+        <input type="submit" name="update" value="Pobierz akutalne kursy walut">
+    </form>
+
+
+
+{% endblock %}
